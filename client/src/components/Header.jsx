@@ -59,6 +59,7 @@ export default function Header() {
         </span>
         Blog
       </Link>
+
       <form onSubmit={handleSubmit}>
         <TextInput
           type='text'
@@ -69,6 +70,23 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
+      {/* ......................... */}
+
+      <Button
+        className='w-12 h-10 md:hidden sm:inline'
+        color='gray'
+        pill
+        onClick={() => dispatch(toggleTheme())}
+      >
+        {theme === 'light' ? <FaSun /> : <FaMoon />}
+      </Button>
+
+
+
+
+
+
+      {/* ............................... */}
       <Button className='w-12 h-10 lg:hidden' color='gray' pill>
         <AiOutlineSearch />
       </Button>
@@ -90,6 +108,7 @@ export default function Header() {
             }
           >
             <Dropdown.Header>
+
               <span className='block text-sm'>@{currentUser.username}</span>
               <span className='block text-sm font-medium truncate'>
                 {currentUser.email}
@@ -111,6 +130,7 @@ export default function Header() {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
+
         <Navbar.Link active={path === '/'} as={'div'}>
           <Link to='/'>Home</Link>
         </Navbar.Link>
@@ -121,6 +141,7 @@ export default function Header() {
           <Link to='/projects'>Projects</Link>
         </Navbar.Link>
       </Navbar.Collapse>
+
     </Navbar>
   );
 }
